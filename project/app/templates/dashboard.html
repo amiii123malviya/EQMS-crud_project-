@@ -1,0 +1,128 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css" integrity="sha512-UuQ/zJlbMVAw/UU8vVBhnI4op+/tFOpQZVT+FormmIEhRSCnJWyHiBbEVgM4Uztsht41f3FzVWgLuwzUqOObKw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body class="dash">
+    {% include 'base.html' %}
+{% block content %}
+{% if sedt %}
+<div class="containerD">
+  <form id="queryForm" action="{% url 'update' pk=sedt.id %}" method="post">
+      {% csrf_token  %}
+      <div class="form-group">
+        <label for="query">Id:</label>
+        <textarea id="query" name="query" rows="1" readonly> {{sedt.id}}</textarea>
+    </div>
+    <div class="form-group">
+      <label for="query">Edit-Query:</label>
+      <textarea id="query" name="query" rows="1" readonly>{{sedt.Email}}"</textarea>
+  </div>
+
+      <div class="form-group">
+          <label for="query">Edit-Query:</label>
+          <textarea id="query" name="query" rows="3" required>{{sedt.Query}}</textarea>
+      </div>
+      <div class="form-group">
+          <label for="description">Edit-Description:</label>
+          <textarea id="description" name="description" rows="5" required>{{sedt.Discriptions}}</textarea>
+      </div>
+      <input type="email"  name="email" value="{{context.em}}" hidden>
+
+      <div class="form-group">
+          <button type="submit">Update</button>
+      </div>
+  </form>
+</div>
+{% else %}
+<h1 class="name">Welcome {{context.nm}}</h1>
+<div class="containerD">
+    <form id="queryForm" action="{% url 'queryform'  %}" method="post">
+        {% csrf_token  %}
+
+        <div class="form-group">
+            <label for="query">Query:</label>
+            <textarea id="query" name="query" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="5" required></textarea>
+        </div>
+        <input type="email"  name="email" value="{{context.em}}" hidden>
+
+        <div class="form-group">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+{% endif%}
+<div class="containerS">
+    <form id="dataForm" action="{% url 'showdata' %}" method="post">
+        {% csrf_token %}
+        <input type="email" value="{{context.em}}" name="email" hidden>
+        <div class="form-group1">
+            <input type="submit" value="Showdata">
+        </div>
+    </form>
+</div>
+{% if key1 %}
+<div class="table-container">
+    <table class="responsive-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Email</th>
+          <th>Query</th>
+          <th>Description</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in key1 %}
+        <tr>
+          <td>{{i.id}}</td>
+          <td>{{i.Email}}</td>
+          <td>{{i.Query}}</td>
+          <td>{{i.Discriptions}}</td>
+          <td>
+            <form id="dataForm" action="{% url 'edit' pk=i.id %}" method="post">
+              {% csrf_token %}
+              <input type="email" value="{{context.em}}" name="email" hidden>
+              <button type="submit">Edit</button>
+
+          </form>
+          </td>
+          <td>
+            <form id="dataForm" action="{% url 'delete' pk=i.id ml=i.Email %}" method="post">
+              {% csrf_token %}
+              <button type="submit">Delete</button>
+
+          </form>
+          </td>
+        </tr>
+        <!-- Add more rows as needed -->
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+  {% endif %}
+
+
+
+  <script>
+    document.getElementById('showDataBtn').addEventListener('click', function() {
+        document.getElementById('email').classList.toggle('show-email');
+    });
+</script>
+{% endblock %}
+</body>
+</html>

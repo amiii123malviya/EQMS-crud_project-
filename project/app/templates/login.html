@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="Login">
+    {% include 'base.html' %}
+
+    {% block content %}
+    <form action="{% url 'logindata' %}" method="post" class="box">
+        {% csrf_token  %}
+        <h1>Login</h1>
+        <div class="input-box">
+            <i class="fa fa-user-secret" aria-hidden="true"></i>
+            <input type="text" name="email" placeholder="E-mail">
+        </div>
+        <div class="input-box">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            <input type="password" name="password" placeholder="Password">
+        </div>
+        <button type="submit">Login</button>
+    </form>  
+    {% endblock %}
+</body>
+</html>
