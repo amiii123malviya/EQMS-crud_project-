@@ -1,0 +1,1 @@
+A query management system is a tool that tracks data queries so they can be adequately individualized and resolved. QMS substantially minimizes and even eliminates the risk of invalid data being unnoticed.
