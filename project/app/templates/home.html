@@ -13,13 +13,16 @@
     {% include 'base.html' %}
     {% block content %}
     <section id="home" class="center-section">
-        <h1 style="font-size: 35px;">Welcome to Our Employee Query Management System</h1>
+        <h1 class="homeh1" style="font-size: 40px; ">Welcome to Our Employee Query Management System</h1>
         <div class="button-container">
             <button class="homepage-btn" ><a href="{% url 'register' %}">Register</a></button>
             <button class="homepage-btn"><a href="{% url 'login' %}">Login</a></button>
         </div>
     </section> 
 </main>
+
     {% endblock %}
+    {% include 'footer.html' %}
+
 </body>
 </html>

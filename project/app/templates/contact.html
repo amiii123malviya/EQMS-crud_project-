@@ -1,15 +1,162 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
-<body>
+<body class="Service">
     {% include 'base.html' %}
 
     {% block content %}
-    <h1>Contact</h1>
+     
+<div class="main">
+
+    <!--cards -->
+   
+   <div class="card">
+   
+       <div class="image">
+           <img src="{% static 'images/c1.jpg' %}">
+        </div>
+        <div class="title">
+         <h1>
+        IT</h1>
+        </div>
+        <div class="des">
+         <p>Information Technology</p>
+        <button>Read More...</button>
+   </div>
+   </div>
+   <!--cards -->
+   
+   
+   <div class="card">
+   
+       <div class="image">
+           <img src="{% static 'images/c2.jpg' %}">
+        </div>
+        <div class="title">
+         <h1>
+        CSD</h1>
+        </div>
+        <div class="des">
+         <p>Computer Science</p>
+        <button>Read More...</button>
+   </div>
+   </div>
+   <!--cards -->
+   
+   
+   <div class="card">
+   
+       <div class="image">
+           <img src="{% static 'images/c3.jpg' %}">
+        </div>
+        <div class="title">
+         <h1>
+        AI</h1>
+        </div>
+        <div class="des">
+         <p>Artificial Intelligance.</p>
+        <button>Read More...</button>
+   </div>
+   </div>
+   <!--cards -->
+   
+   
+   <div class="card">
+   
+       <div class="image">
+           <img src="{% static 'images/c4.jpg' %}">
+        </div>
+        <div class="title">
+         <h1>
+        ML</h1>
+        </div>
+        <div class="des">
+         <p>Machine learning.</p>
+        <button>Read More...</button>
+   </div>
+   </div>
+   <!--cards -->
+   
+   
+   <div class="card">
+   
+       <div class="image">
+           <img src="{% static 'images/c5.jpg' %}">
+        </div>
+        <div class="title">
+         <h1>
+        PM</h1>
+        </div>
+        <div class="des">
+         <p>Prompt engineer..</p>
+        <button>Read More...</button>
+   </div>
+   </div>
+   <!--cards -->
+   
+   <div class="card">
+   
+       <div class="image">
+           <img src="{% static 'images/c6.jpg' %}">
+        </div>
+        <div class="title">
+         <h1>
+        ECE</h1>
+        </div>
+        <div class="des">
+         <p>Electronics and communication...</p>
+        <button>Read More...</button>
+   </div>
+   </div>
+   <!--cards -->
+   
+   <div class="card">
+   
+       <div class="image">
+           <img src="{% static 'images/c7.jpg' %}">
+        </div>
+        <div class="title">
+         <h1>
+        CEE</h1>
+        </div>
+        <div class="des">
+         <p>Civil Engineer..</p>
+        <button>Read More...</button>
+   
+   </div>
+   </div>
+   <!--cards -->
+   
+   
+   <div class="card">
+   
+   <div class="image">
+       <div class="image">
+           <img src="{% static 'images/c8.jpg' %}">
+        </div>
+        <div class="title">
+         <h1>
+        EE</h1>
+        </div>
+        <div class="des">
+         <p>Electronics and Electrical..</p>
+        <button>Read More...</button>
+   </div>
+   </div>
+   <!--cards -->
+   
+   
+   
+   </div>
     {% endblock %}
+    {% include 'footer.html' %}
+
 </body>
 </html>

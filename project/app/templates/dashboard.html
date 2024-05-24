@@ -14,6 +14,8 @@
     {% include 'base.html' %}
 {% block content %}
 {% if sedt %}
+<h1 class="name">Update Query {{context.nm}}</h1>
+
 <div class="containerD">
   <form id="queryForm" action="{% url 'update' pk=sedt.id %}" method="post">
       {% csrf_token  %}
@@ -23,7 +25,7 @@
     </div>
     <div class="form-group">
       <label for="query">Edit-Query:</label>
-      <textarea id="query" name="query" rows="1" readonly>{{sedt.Email}}"</textarea>
+      <textarea id="query" name="query" rows="1" readonly>{{sedt.Email}}</textarea>
   </div>
 
       <div class="form-group">
@@ -42,7 +44,6 @@
   </form>
 </div>
 {% else %}
-<h1 class="name">Welcome {{context.nm}}</h1>
 <div class="containerD">
     <form id="queryForm" action="{% url 'queryform'  %}" method="post">
         {% csrf_token  %}

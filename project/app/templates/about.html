@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<body class="abt">
+
     {% include 'base.html' %}
 
     {% block content %}
-    <h1>About</h1>
+    
+<div class="row">
+    <div class="imgWrapper">
+        <img src="{% static 'images/amii.png' %}" >
+    </div>
+    <div class="contentWrapper">
+            <span class="textWrapper">
+                <h2>About us</h2>
+                <p>A query management system is a tool that tracks data queries so they can be adequately individualized and resolved. QMS substantially minimizes and even eliminates the risk of invalid data being unnoticed.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum odio vitae fermentum malesuada. Nullam feugiat, turpis sed malesuada elementum, tortor augue hendrerit lorem, a luctus metus neque et arcu.</p>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+
     {% endblock %}
+    {% include 'footer.html' %}
+
 </body>
 </html>
